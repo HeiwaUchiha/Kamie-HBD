@@ -66,6 +66,245 @@ const ratingStatus = document.getElementById('ratingStatus');
 const rateOverlay = document.getElementById('rateOverlay');
 const closeRating = document.querySelector('.close-rating');
 
+(() => {
+  const loader = document.getElementById("page-loader");
+  const message = document.getElementById("loader-message");
+  const progress = document.getElementById("loader-progress");
+  const progressFill = document.getElementById("loader-progress-fill");
+  const progressText = document.getElementById("loader-percent");
+  const retryButton = document.getElementById("loader-retry");
+
+  if (!loader || !message || !progress || !progressFill ||
+      !progressText || !retryButton) {
+    console.error("The loading overlay is missing required elements.");
+    return;
+  }
+
+  const MAX_WAIT = 12000;
+  const FADE_TIME = 650;
+
+  const messages = [
+    "Gathering little pieces of happiness for you. 💚",
+    "Arranging your memories with a little extra love...",
+    "Almost ready, pumpkin. Try to contain your excitement. 🎃",
+    "Good things take time, madam. Yes, even this. 😂",
+    "Putting the final touches on something made for you."
+  ];
+
+  let completed = 0;
+  let total = 0;
+  let finished = false;
+  let messageIndex = 0;
+  let messageTimer;
+  let timeoutTimer;
+  let runId = 0;
+
+  function updateProgress() {
+    const percentage = total === 0
+      ? 0
+      : Math.round((completed / total) * 100);
+
+    progressFill.style.width = `${percentage}%`;
+    progress.setAttribute("aria-valuenow", percentage);
+
+    progressText.textContent = percentage === 100
+      ? "Everything essential is ready! 💚"
+      : `${percentage}% — preparing your gift...`;
+  }
+
+  function completeTask() {
+    completed = Math.min(completed + 1, total);
+    updateProgress();
+  }
+
+  function changeMessage() {
+    message.classList.add("is-changing");
+
+    setTimeout(() => {
+      messageIndex = (messageIndex + 1) % messages.length;
+      message.textContent = messages[messageIndex];
+      message.classList.remove("is-changing");
+    }, 250);
+  }
+
+  function startMessages() {
+    clearInterval(messageTimer);
+    messageTimer = setInterval(changeMessage, 2800);
+  }
+
+  function stopMessages() {
+    clearInterval(messageTimer);
+    clearTimeout(timeoutTimer);
+  }
+
+  function waitWithTimeout(promise, milliseconds) {
+    return Promise.race([
+      Promise.resolve(promise),
+      new Promise((resolve) => {
+        setTimeout(() => resolve("timeout"), milliseconds);
+      })
+    ]);
+  }
+
+  function loadImage(url) {
+    return new Promise((resolve) => {
+      const image = new Image();
+
+      image.onload = () => resolve(true);
+      image.onerror = () => resolve(false);
+
+      image.src = url;
+
+      if (image.complete) {
+        resolve(image.naturalWidth > 0);
+      }
+    });
+  }
+
+  function revealWebsite(reason = "ready") {
+    if (finished) return;
+
+    finished = true;
+    stopMessages();
+
+    if (reason === "timeout") {
+      progressText.textContent =
+        "Taking a little longer? You can explore while extras load. 💚";
+
+      retryButton.hidden = false;
+    } else if (reason === "error") {
+      progressText.textContent =
+        "Some extras couldn't load, but you can still continue.";
+      retryButton.hidden = false;
+    } else {
+      progressFill.style.width = "100%";
+      progress.setAttribute("aria-valuenow", 100);
+      progressText.textContent = "Ready for you, Kamie! 💚";
+    }
+
+    loader.classList.add("is-leaving");
+    loader.setAttribute("aria-hidden", "true");
+
+    setTimeout(() => {
+      loader.hidden = true;
+    }, FADE_TIME);
+  }
+
+  async function startLoader() {
+    const thisRun = ++runId;
+
+    finished = false;
+    completed = 0;
+
+    loader.hidden = false;
+    loader.classList.remove("is-leaving");
+    loader.removeAttribute("aria-hidden");
+    retryButton.hidden = true;
+
+    messageIndex = 0;
+    message.textContent = messages[0];
+    progressFill.style.width = "0%";
+    progress.setAttribute("aria-valuenow", 0);
+    progressText.textContent = "Preparing your gift...";
+
+    startMessages();
+
+    const essentialImages = [
+      "resources/images/pumpkin.png"
+      // Add the initial welcome-screen background here if needed.
+    ];
+
+    const imageTasks = essentialImages.map(async (url) => {
+      try {
+        const loaded = await loadImage(url);
+
+        if (!loaded) {
+          console.warn("Essential image failed to load:", url);
+        }
+
+        return loaded;
+      } catch (error) {
+        console.warn("Image loading failed:", url, error);
+        return false;
+      }
+    });
+
+    const fontTask = (async () => {
+      if (!document.fonts || !document.fonts.ready) return true;
+
+      try {
+        await document.fonts.ready;
+        return true;
+      } catch (error) {
+        console.warn("Font loading failed:", error);
+        return false;
+      }
+    })();
+
+    const domTask = new Promise((resolve) => {
+      if (document.readyState !== "loading") {
+        resolve(true);
+      } else {
+        document.addEventListener(
+          "DOMContentLoaded",
+          () => resolve(true),
+          { once: true }
+        );
+      }
+    });
+
+    const tasks = [...imageTasks, fontTask, domTask];
+    total = tasks.length;
+    updateProgress();
+
+    const trackedTasks = tasks.map(async (task) => {
+      try {
+        return await task;
+      } finally {
+        if (thisRun === runId) {
+          completeTask();
+        }
+      }
+    });
+
+    timeoutTimer = setTimeout(() => {
+      if (thisRun === runId && !finished) {
+        revealWebsite("timeout");
+      }
+    }, MAX_WAIT);
+
+    try {
+      const results = await Promise.all(trackedTasks);
+
+      if (thisRun !== runId || finished) return;
+
+      const allSuccessful = results.every(Boolean);
+
+      if (allSuccessful) {
+        revealWebsite("ready");
+      } else {
+        revealWebsite("error");
+      }
+    } catch (error) {
+      console.error("Loading failed:", error);
+
+      if (thisRun === runId) {
+        revealWebsite("error");
+      }
+    }
+  }
+
+  retryButton.addEventListener("click", () => {
+    window.location.reload();
+  });
+  timeoutTimer = setTimeout(() => {
+    revealWebsite("timeout");
+  }, MAX_WAIT);
+
+  startLoader();
+})();
+
+
 
 noBTn.addEventListener('click', () => {
     welcomePage.classList.add('hide-div');

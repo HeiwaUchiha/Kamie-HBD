@@ -9,7 +9,58 @@
     <link rel="stylesheet" href="lightbox.css">
 </head>
 <body>
+    <div id="page-loader" class="page-loader" role="status" aria-live="polite" aria-label="Preparing your birthday gift">
+
+      <div class="loader-paper">
+
+        <span class="loader-doodle doodle-star" aria-hidden="true">✳</span>
+        <span class="loader-doodle doodle-heart" aria-hidden="true">♡</span>
+        <span class="loader-doodle doodle-spark" aria-hidden="true">✦</span>
+
+        <div class="loader-pumpkin" aria-hidden="true">
+          <img
+            src="resources/images/pumpkin.png"
+            alt=""
+            width="90"
+            height="90"
+          />
+        </div>
+
+        <p class="loader-eyebrow">A LITTLE SOMETHING FOR YOU</p>
+
+        <h1 class="loader-title">Dear Kamie...</h1>
+
+        <p id="loader-message" class="loader-message">
+          Gathering little pieces of happiness for you.
+        </p>
+
+        <div
+          class="loader-progress-track"
+          role="progressbar"
+          aria-label="Essential content loading progress"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+          id="loader-progress"
+        >
+          <div id="loader-progress-fill" class="loader-progress-fill"></div>
+        </div>
+
+        <p id="loader-percent" class="loader-percent">Getting things ready...</p>
+
+        <p class="loader-footnote">
+          Made with love, a little mischief, and one very stubborn pumpkin.
+        </p>
+
+        <button id="loader-retry" class="loader-retry" type="button" hidden>
+          Try loading again ↻
+        </button>
+
+      </div>
+    </div>
+
     <img class="central-img" src="resources/images/kam-kanji.png" alt="">
+    
     <div class="page-welcome">
         <h1>Happy <br> Birthday,</h1>
         <div class="kam-wrapper">
@@ -1123,6 +1174,7 @@
     <audio id="birthdayMusic" loop preload="auto">
         <source src="resources/Cat-Burns-Theres-Just-Something-About-Her-(CeeNaija.com).mp3" type="audio/mpeg">
     </audio>
+    
 
     <script src="lightbox-plus-jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>

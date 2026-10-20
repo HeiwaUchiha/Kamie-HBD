@@ -63,6 +63,254 @@ body::before{
 .hide-div{
     display: none !important; 
 }
+
+/* ==================================
+   KAMIE HBD — FULL PAGE LOADER
+================================== */
+
+.page-loader {
+    --loader-cream: #fff9ec;
+    --loader-green: #1f4328;
+    --loader-sage: #789b83;
+    --loader-ink: #26352d;
+  
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+  
+    display: grid;
+    place-items: center;
+  
+    padding: 24px;
+    overflow-y: auto;
+  
+    background: var(--loader-cream);
+    color: var(--loader-green);
+  
+    opacity: 1;
+    visibility: visible;
+    transition:
+      opacity 0.65s ease,
+      visibility 0.65s ease;
+  }
+  
+  .page-loader.is-leaving {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  
+  .loader-paper {
+    position: relative;
+    width: min(100%, 440px);
+    padding: 42px 26px 34px;
+    text-align: center;
+  
+    border: 2px solid var(--loader-green);
+    border-radius: 5px 12px 7px 14px;
+  
+    background:
+      repeating-linear-gradient(
+        transparent 0,
+        transparent 31px,
+        rgb(31 67 40 / 7%) 32px,
+        transparent 33px
+      ),
+      var(--loader-cream);
+  
+    box-shadow: 5px 6px 0 rgb(31 67 40 / 12%);
+  
+    animation: paper-arrive 0.8s ease both;
+  }
+  
+  .loader-paper::before {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    border: 1px dashed rgb(31 67 40 / 38%);
+    border-radius: 3px 9px 5px 10px;
+    pointer-events: none;
+  }
+  
+  .loader-pumpkin {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto 16px;
+    width: 90px;
+    height: 90px;
+  
+    animation: pumpkin-bob 2.2s ease-in-out infinite;
+  }
+  
+  .loader-pumpkin img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .loader-eyebrow {
+    margin: 0 0 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+  }
+  
+  .loader-title {
+    margin: 0 0 15px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(30px, 8vw, 43px);
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  
+  .loader-message {
+    min-height: 48px;
+    max-width: 320px;
+    margin: 0 auto 25px;
+  
+    color: var(--loader-ink);
+    font-size: 15px;
+    line-height: 1.7;
+  
+    transition: opacity 0.25s ease;
+  }
+  
+  .loader-message.is-changing {
+    opacity: 0;
+  }
+  
+  .loader-progress-track {
+    width: 100%;
+    height: 13px;
+    padding: 2px;
+    overflow: hidden;
+  
+    border: 1.5px solid var(--loader-green);
+    border-radius: 10px;
+  }
+  
+  .loader-progress-fill {
+    width: 0%;
+    height: 100%;
+    border-radius: 8px;
+  
+    background: var(--loader-green);
+    transition: width 0.3s ease;
+  }
+  
+  .loader-percent {
+    margin: 10px 0 22px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  
+  .loader-footnote {
+    margin: 0 auto;
+    max-width: 290px;
+  
+    color: var(--loader-sage);
+    font-size: 11px;
+    font-style: italic;
+    line-height: 1.7;
+  }
+  
+  .loader-doodle {
+    position: absolute;
+    z-index: 2;
+    color: var(--loader-green);
+    pointer-events: none;
+  }
+  
+  .doodle-star {
+    top: 24px;
+    left: 22px;
+    font-size: 27px;
+    animation: doodle-spin 8s linear infinite;
+  }
+  
+  .doodle-heart {
+    top: 55px;
+    right: 25px;
+    font-size: 34px;
+    animation: doodle-float 2.5s ease-in-out infinite;
+  }
+  
+  .doodle-spark {
+    right: 38px;
+    bottom: 70px;
+    font-size: 22px;
+    animation: doodle-float 3s ease-in-out infinite reverse;
+  }
+  
+  .loader-retry {
+    position: relative;
+    z-index: 3;
+    margin-top: 18px;
+    padding: 10px 18px;
+  
+    color: var(--loader-cream);
+    background: var(--loader-green);
+    border: 0;
+    border-radius: 5px;
+  
+    font: inherit;
+    cursor: pointer;
+  }
+  
+  .loader-retry:hover {
+    background: var(--loader-ink);
+  }
+  
+  @keyframes pumpkin-bob {
+    0%, 100% { transform: translateY(0) rotate(-4deg); }
+    50% { transform: translateY(-8px) rotate(4deg); }
+  }
+  
+  @keyframes doodle-float {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-7px) rotate(8deg); }
+  }
+  
+  @keyframes doodle-spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes paper-arrive {
+    from { opacity: 0; transform: translateY(12px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  
+  @media (max-width: 480px) {
+    .loader-paper {
+      padding: 38px 20px 28px;
+    }
+  
+    .doodle-star {
+      top: 17px;
+      left: 15px;
+    }
+  
+    .doodle-heart {
+      top: 43px;
+      right: 15px;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .loader-paper,
+    .loader-pumpkin,
+    .loader-doodle {
+      animation: none !important;
+    }
+  
+    .page-loader,
+    .loader-progress-fill,
+    .loader-message {
+      transition: none !important;
+    }
+  }  
 .central-img{
     position: fixed;
     top: 10%;
