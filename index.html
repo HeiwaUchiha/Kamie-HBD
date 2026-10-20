@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KAMIE'S BIRTHDAY</title>
+    <link rel="shortcut icon" href="resources/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lightbox.css">
 </head>
 <body>
-    <!-- <nav>
-        <h1>HAPPY BIRTHDAY KAMIE!</h1>
-    </nav> -->
+    <img class="central-img" src="resources/images/kam-kanji.png" alt="">
     <div class="page-welcome">
         <h1>Happy <br> Birthday,</h1>
         <div class="kam-wrapper">
@@ -25,6 +25,7 @@
             <button id="no">NO</button>
         </span>
     </div>
+
     <div class="page-error hide-div">
         <h1>HOW DARE YOU!</h1>
         <span class="err-flex1">
@@ -83,12 +84,10 @@
                   <span class="ring"></span>
                   <span class="ring"></span>
                 </div>
-              
-                
                 <div class="card-inner">
                   <div class="card-number">02</div>    
                     <img class="card-illustration2" src="resources/images/card-pics.png" alt="">
-                  <h3 class="card-title">KAMIE THE PICTURES</h3>
+                  <h3 class="card-title">KAMIE THE VIEW</h3>
                   <p class="card-subtext">Some moments<br>deserve to be kept.</p>
                   <div class="card-heart">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="#1f4328">
@@ -178,14 +177,956 @@
         </div>
     </main>
 
+    <div class="page-wish hide-div">
+      <button class="back back2">Back</button>
+      <img class="bouncing-cake2" src="resources/images/cake.png" alt="">
+      <img src="resources/images/shooting-star.gif" alt="" class="shooting-star">
+      <div class="wish-container">
+        <h2 class="num-title">01</h2>
+        <div class="title">
+          <span class="emphasis left"></span>
+          <div class="title-content">
+              <h1>THE WISH</h1>
+              <div class="title-decoration">
+                  <span></span>
+                  <span class="heart"><img src="resources/images/scary.png" alt=""></span>
+                  <span></span>
+              </div>
+          </div>
+          <span class="emphasis right"></span>
+        </div>
+        <p class="subtitle1">A wish is a very important thing.</p>
+        <p class="subtitle2">What are the things you wish for in this your New Year?</p>
+
+        <div class="wish-box">
+          <textarea class="wish-area" id="wish-input" placeholder="Write a birthday wish..."></textarea>
+          <button id="send-btn" type="button">
+            <img src="resources/images/send.png" alt="">
+          </button>
+        </div>
+
+        <p id="wishStatus" aria-live="polite"></p>
+      </div>
+
+    </div>
+
+    <div class="page-view hide-div">
+      <button class="back back2" id="view-back">Back</button>
+      <img class="hanging-polaroids" src="resources/images/hanging-polaroids.png" alt="Two hanging polaroid photos">
+      <img class="bouncing-cake" src="resources/images/giphy.gif" alt="">
+      <div class="view-container">
+        <h2 class="num-title">02</h2>
+        <div class="title">
+          <span class="emphasis left"></span>
+          <div class="title-content">
+              <h1>THE VIEW</h1>
+              <div class="title-decoration">
+                  <span></span>
+                  <span class="heart"><img src="resources/images/scary.png" alt=""></span>
+                  <span></span>
+              </div>
+          </div>
+          <span class="emphasis right"></span>
+        </div>
+        <p class="subtitle1">She's beautiful, and the camera knows it.</p>
+        <p class="subtitle2">Every piece of your day shared with me.</p>
+
+        <div class="view-box">
+          <div class="view-area">
+            <button class="photo-frame" type="button" id="fave">
+              <img class="photo" src="resources/images/fave-main.png" alt="Birthday memory 1">
+              <img class="frame" src="resources/images/peg.png" alt="">
+              <h2 class="photo-caption">Faves</h2>
+            </button>
+          
+            <button class="photo-frame" type="button" id="wallpaper">
+              <img class="photo" src="resources/P/wall-1.jpg" alt="Birthday memory 2">
+              <img class="frame" src="resources/images/heart-tape.png" alt="">
+              <h2 class="photo-caption">Wallpapers</h2>
+            </button>
+  
+            <button class="photo-frame" type="button" id="nail">
+              <img class="photo" src="resources/P/nails-1.jpg" alt="Birthday memory 2">
+              <img class="frame" src="resources/images/checked-tape.png" alt="">
+              <h2 class="photo-caption">Nails</h2>
+            </button>
+  
+            <button class="photo-frame" type="button" id="random">
+              <img class="photo" src="resources/P/rand-1.jpg" alt="Birthday memory 2">
+              <img class="frame" src="resources/images/checked-tape.png" alt="">
+              <h2 class="photo-caption">Randoms</h2>
+            </button>
+  
+            <button class="photo-frame" type="button" id="bw">
+              <img class="photo" src="resources/P/bw-1.jpg" alt="Birthday memory 2">
+              <img class="frame" src="resources/images/heart-tape.png" alt="">
+              <h2 class="photo-caption">B/Ws</h2>
+            </button>
+  
+            <button class="photo-frame" type="button" id="mirror">
+              <img class="photo" src="resources/P/mirror-1.jpg" alt="Birthday memory 2">
+              <img class="frame" src="resources/images/peg.png" alt="">
+              <h2 class="photo-caption">Mirrors</h2>
+            </button>
+          </div>
+        </div>   
+      </div>
+      <div class="gallery-container hide-div" id="fave-container">
+        <button  class="back" id="back3">Back</button>
+        <div class="gallery-grid">
+          <a href="resources/P/fave-1.jpg" class="gallery-item" data-lightbox="faves" data-title="First Picture you ever Sent"><img src="resources/P/fave-1.jpg" alt="Camping"></a>
+          <a href="resources/P/fave-2.jpg" class="gallery-item" data-lightbox="faves" data-title="A new one, But my Favourite B&W/Mirror picture and a Heavy Wallpaper Material"><img src="resources/P/fave-2.jpg" alt="Forest"></a>
+          <button class="gallery-item video-item" type="button" data-caption="All-time Favourite Video">
+            <video muted preload="metadata">
+              <source src="resources/P/fave-3.mp4" type="video/mp4">
+            </video>
+          </button>
+          <a href="resources/P/fave-4.jpg" class="gallery-item" data-lightbox="faves" data-title="As you know, Favourite nails/nail image"><img src="resources/P/fave-4.jpg" alt="Forest"></a>
+          <button class="gallery-item video-item" type="button" data-caption="This one was a definite Shocker">
+            <video muted preload="metadata">
+              <source src="resources/P/fave-5.mp4" type="video/mp4">
+            </video>
+          </button>
+          <button class="gallery-item video-item" type="button" data-caption="Favourite Edit">
+            <video muted preload="metadata">
+              <source src="resources/P/fave-6.mp4" type="video/mp4">
+            </video>
+          </button>
+          <a href="resources/P/wall-1.jpg" class="gallery-item" data-lightbox="faves" data-title="Favourite Wallpaper"><img src="resources/P/wall-1.jpg" alt="Forest"></a>
+          <a href="resources/P/fave-7.jpg" class="gallery-item" data-lightbox="faves" data-title="All-time Favourite Picture"><img src="resources/P/fave-7.jpg" alt="Forest"></a>
+          <button class="gallery-item video-item" type="button" data-caption="">
+            <video muted preload="metadata">
+              <source src="resources/P/fave-8.mp4" type="video/mp4">
+            </video>
+          </button>
+          <a href="resources/P/fave-9.jpg" class="gallery-item" data-lightbox="faves" data-title="2nd-Place Favourite Picture"><img src="resources/P/fave-9.jpg" alt="Forest"></a>
+          <button class="gallery-item video-item" type="button" data-caption="">
+            <video muted preload="metadata">
+              <source src="resources/P/fave-10.mp4" type="video/mp4">
+            </video>
+          </button>
+          <button class="gallery-item video-item" type="button" data-caption="">
+            <video muted preload="metadata">
+              <source src="resources/P/fave-11.mp4" type="video/mp4">
+            </video>
+          </button>
+          <button class="gallery-item video-item" type="button" data-caption="">
+            <video muted preload="metadata">
+              <source src="resources/P/fave-12.mp4" type="video/mp4">
+            </video>
+          </button>
+          <a href="resources/P/fave-13.jpg" class="gallery-item" data-lightbox="randoms" data-title="Yh... Big Head😅🥰"><img src="resources/P/fave-13.jpg"></a>
+          <a href="resources/P/fave-14.jpg" class="gallery-item" data-lightbox="faves" data-title="So much going on here for me😅😅"><img src="resources/P/fave-14.jpg" alt="Forest"></a>
+          <button class="gallery-item video-item" type="button" data-caption="">
+            <video muted preload="metadata">
+              <source src="resources/P/fave-15.mp4" type="video/mp4">
+            </video>
+          </button>
+        </div>
+      </div>
+      <div class="gallery-container hide-div" id="wallpaper-container">
+        <button class="back" id="back4">Back</button>
+        <div class="gallery-grid">
+          <a href="resources/P/wall-1.jpg" class="gallery-item" data-lightbox="wallpaper" data-title=""><img src="resources/P/wall-1.jpg"></a>
+          <a href="resources/P/wall-2.jpg" class="gallery-item" data-lightbox="wallpaper" data-title=""><img src="resources/P/wall-2.jpg"></a>
+          <a href="resources/P/wall-3.jpg" class="gallery-item" data-lightbox="wallpaper" data-title=""><img src="resources/P/wall-3.jpg"></a>
+          <a href="resources/P/wall-4.jpg" class="gallery-item" data-lightbox="wallpaper" data-title=""><img src="resources/P/wall-4.jpg"></a>
+          <a href="resources/P/wall-5.png" class="gallery-item" data-lightbox="wallpaper" data-title=""><img src="resources/P/wall-5.png"></a>
+          <a href="resources/P/wall-6.png" class="gallery-item" data-lightbox="wallpaper" data-title=""><img src="resources/P/wall-6.png"></a>
+          <a href="resources/P/wall-7.jpg" class="gallery-item" data-lightbox="wallpaper" data-title=""><img src="resources/P/wall-7.jpg"></a>
+          <a href="resources/P/wall-8.jpg" class="gallery-item" data-lightbox="wallpaper" data-title=""><img src="resources/P/wall-8.jpg"></a>
+          <a href="resources/P/wall-9.jpg" class="gallery-item" data-lightbox="wallpaper" data-title=""><img src="resources/P/wall-9.jpg"></a>
+          <a href="resources/P/wall-10.jpg" class="gallery-item" data-lightbox="wallpaper" data-title=""><img src="resources/P/wall-10.jpg"></a>
+          <a href="resources/P/wall-11.jpg" class="gallery-item" data-lightbox="wallpaper" data-title=""><img src="resources/P/wall-11.jpg"></a>
+          <button class="gallery-item video-item" type="button" data-caption="All-time Favourite Video">
+            <video muted preload="metadata">
+              <source src="resources/P/wall-12.mp4" type="video/mp4">
+            </video>
+          </button>
+        </div>
+      </div>
+      <div class="gallery-container hide-div" id="nail-container">
+        <button class="back" id="back5">Back</button>
+        <div class="gallery-grid">
+          <a href="resources/P/nails-1.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/nails-1.jpg"></a>
+          <a href="resources/P/fave-4.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/fave-4.jpg"></a>
+          <a href="resources/P/nails-3.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/nails-3.jpg"></a>
+          <a href="resources/P/nails-4.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/nails-4.jpg"></a>
+          <a href="resources/P/nails-5.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/nails-5.jpg"></a>
+          <a href="resources/P/nails-6.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/nails-6.jpg"></a>
+          <a href="resources/P/nails-7.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/nails-7.jpg"></a>
+          <button class="gallery-item video-item" type="button" data-caption="Prim and Proper">
+            <video muted preload="metadata">
+              <source src="resources/P/nails-8.mp4" type="video/mp4">
+            </video>
+          </button>
+          <a href="resources/P/nails-9.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/nails-9.jpg"></a>
+          <a href="resources/P/nails-10.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/nails-10.jpg"></a>
+          <a href="resources/P/nails-11.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/nails-11.jpg"></a>
+          <a href="resources/P/nails-12.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/nails-12.jpg"></a>
+          <button class="gallery-item video-item" type="button" data-caption="">
+            <video muted preload="metadata">
+              <source src="resources/P/nails-13.mp4" type="video/mp4">
+            </video>
+          </button>
+          <a href="resources/P/nails-14.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/nails-14.jpg"></a>
+          <a href="resources/P/nails-15.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/nails-15.jpg"></a>
+          <a href="resources/P/nails-16.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/nails-16.jpg"></a>
+        </div>
+      </div>  
+      <div class="gallery-container hide-div" id="random-container">
+        <button class="back" id="back6">Back</button>
+        <div class="gallery-grid">
+          <a href="resources/P/rand-1.jpg" class="gallery-item" data-lightbox="randoms" data-title=""><img src="resources/P/rand-1.jpg"></a>
+          <a href="resources/P/rand-2.jpg" class="gallery-item" data-lightbox="randoms" data-title=""><img src="resources/P/rand-2.jpg"></a>
+          <a href="resources/P/rand-3.jpg" class="gallery-item" data-lightbox="randoms" data-title=""><img src="resources/P/rand-3.jpg"></a>
+          <a href="resources/P/rand-4.jpg" class="gallery-item" data-lightbox="randoms" data-title=""><img src="resources/P/rand-4.jpg"></a>
+          <button class="gallery-item video-item" type="button" data-caption="">
+            <video muted preload="metadata">
+              <source src="resources/P/rand-5.mp4" type="video/mp4">
+            </video>
+          </button>
+          <a href="resources/P/rand-6.jpg" class="gallery-item" data-lightbox="randoms" data-title=""><img src="resources/P/rand-6.jpg"></a>
+          <a href="resources/P/rand-7.jpg" class="gallery-item" data-lightbox="randoms" data-title=""><img src="resources/P/rand-7.jpg"></a>
+          <button class="gallery-item video-item" type="button" data-caption="All-time Favourite Video">
+            <video muted preload="metadata">
+              <source src="resources/P/rand-8.mp4" type="video/mp4">
+            </video>
+          </button>
+          <a href="resources/P/rand-9.jpg" class="gallery-item" data-lightbox="randoms" data-title=""><img src="resources/P/rand-9.jpg"></a>
+          <a href="resources/P/rand-10.jpg" class="gallery-item" data-lightbox="randoms" data-title=""><img src="resources/P/rand-10.jpg"></a>
+          <a href="resources/P/rand-11.jpg" class="gallery-item" data-lightbox="randoms" data-title=""><img src="resources/P/rand-11.jpg"></a>
+          <a href="resources/P/rand-12.jpg" class="gallery-item" data-lightbox="randoms" data-title=""><img src="resources/P/rand-12.jpg"></a>
+          <button class="gallery-item video-item" type="button" data-caption="All-time Favourite Video">
+            <video muted preload="metadata">
+              <source src="resources/P/rand-13.mp4" type="video/mp4">
+            </video>
+          </button>
+          <a href="resources/P/rand-14.jpg" class="gallery-item" data-lightbox="randoms" data-title=""><img src="resources/P/rand-14.jpg"></a>
+          <a href="resources/P/rand-15.jpg" class="gallery-item" data-lightbox="randoms" data-title=""><img src="resources/P/rand-15.jpg"></a>
+          <a href="resources/P/rand-16.jpg" class="gallery-item" data-lightbox="randoms" data-title=""><img src="resources/P/rand-16.jpg"></a>
+          <button class="gallery-item video-item" type="button" data-caption="All-time Favourite Video">
+            <video muted preload="metadata">
+              <source src="resources/P/rand-17.mp4" type="video/mp4">
+            </video>
+          </button>
+          <a href="resources/P/rand-18.jpg" class="gallery-item" data-lightbox="randoms" data-title=""><img src="resources/P/rand-18.jpg"></a>
+          <a href="resources/P/rand-19.jpg" class="gallery-item" data-lightbox="randoms" data-title=""><img src="resources/P/rand-19.jpg"></a>
+          <button class="gallery-item video-item" type="button" data-caption="All-time Favourite Video">
+            <video muted preload="metadata">
+              <source src="resources/P/rand-20.mp4" type="video/mp4">
+            </video>
+          </button>
+          <a href="resources/P/rand-21.jpg" class="gallery-item" data-lightbox="randoms" data-title=""><img src="resources/P/rand-21.jpg"></a>
+          <button class="gallery-item video-item" type="button" data-caption="All-time Favourite Video">
+            <video muted preload="metadata">
+              <source src="resources/P/rand-22.mp4" type="video/mp4">
+            </video>
+          </button>
+          <button class="gallery-item video-item" type="button" data-caption="All-time Favourite Video">
+            <video muted preload="metadata">
+              <source src="resources/P/rand-23.mp4" type="video/mp4">
+            </video>
+          </button>
+          <button class="gallery-item video-item" type="button" data-caption="All-time Favourite Video">
+            <video muted preload="metadata">
+              <source src="resources/P/rand-24.mp4" type="video/mp4">
+            </video>
+          </button>
+          <a href="resources/P/rand-25.jpg" class="gallery-item" data-lightbox="randoms" data-title=""><img src="resources/P/rand-25.jpg"></a>
+          <a href="resources/P/rand-26.jpg" class="gallery-item" data-lightbox="randoms" data-title=""><img src="resources/P/rand-26.jpg"></a>
+          <button class="gallery-item video-item" type="button" data-caption="All-time Favourite Video">
+            <video muted preload="metadata">
+              <source src="resources/P/rand-27.mp4" type="video/mp4">
+            </video>
+          </button>
+          <button class="gallery-item video-item" type="button" data-caption="All-time Favourite Video">
+            <video muted preload="metadata">
+              <source src="resources/P/rand-28.mp4" type="video/mp4">
+            </video>
+          </button>
+          <a href="resources/P/rand-29.jpg" class="gallery-item" data-lightbox="randoms" data-title=""><img src="resources/P/rand-29.jpg"></a>
+          <a href="resources/P/rand-30.jpg" class="gallery-item" data-lightbox="randoms" data-title=""><img src="resources/P/rand-30.jpg"></a>
+          <button class="gallery-item video-item" type="button" data-caption="All-time Favourite Video">
+            <video muted preload="metadata">
+              <source src="resources/P/rand-31.mp4" type="video/mp4">
+            </video>
+          </button>
+          <button class="gallery-item video-item" type="button" data-caption="All-time Favourite Video">
+            <video muted preload="metadata">
+              <source src="resources/P/rand-32.mp4" type="video/mp4">
+            </video>
+          </button>
+          <a href="resources/P/rand-33.jpg" class="gallery-item" data-lightbox="randoms" data-title=""><img src="resources/P/rand-33.jpg"></a>
+          <a href="resources/P/rand-34.jpg" class="gallery-item" data-lightbox="randoms" data-title=""><img src="resources/P/rand-34.jpg"></a>
+          <button class="gallery-item video-item" type="button" data-caption="All-time Favourite Video">
+            <video muted preload="metadata">
+              <source src="resources/P/rand-35.mp4" type="video/mp4">
+            </video>
+          </button>
+          <button class="gallery-item video-item" type="button" data-caption="All-time Favourite Video">
+            <video muted preload="metadata">
+              <source src="resources/P/rand-36.mp4" type="video/mp4">
+            </video>
+          </button>
+          <button class="gallery-item video-item" type="button" data-caption="All-time Favourite Video">
+            <video muted preload="metadata">
+              <source src="resources/P/rand-37.mp4" type="video/mp4">
+            </video>
+          </button>
+          <button class="gallery-item video-item" type="button" data-caption="All-time Favourite Video">
+            <video muted preload="metadata">
+              <source src="resources/P/rand-38.mp4" type="video/mp4">
+            </video>
+          </button>
+          <button class="gallery-item video-item" type="button" data-caption="All-time Favourite Video">
+            <video muted preload="metadata">
+              <source src="resources/P/rand-39.mp4" type="video/mp4">
+            </video>
+          </button>
+          <button class="gallery-item video-item" type="button" data-caption="All-time Favourite Video">
+            <video muted preload="metadata">
+              <source src="resources/P/rand-40.mp4" type="video/mp4">
+            </video>
+          </button>
+        </div>
+      </div>
+      <div class="gallery-container hide-div" id="bw-container">
+        <button class="back" id="back7">Back</button>
+        <div class="gallery-grid">
+          <a href="resources/P/bw-1.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/bw-1.jpg"></a>
+          <button class="gallery-item video-item" type="button" data-caption="">
+            <video muted preload="metadata">
+              <source src="resources/P/bw-2.mp4" type="video/mp4">
+            </video>
+          </button>
+          <button class="gallery-item video-item" type="button" data-caption="">
+            <video muted preload="metadata">
+              <source src="resources/P/bw-3.mp4" type="video/mp4">
+            </video>
+          </button>
+          <a href="resources/P/bw-4.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/bw-4.jpg"></a>
+          <button class="gallery-item video-item" type="button" data-caption="Prim and Proper">
+            <video muted preload="metadata">
+              <source src="resources/P/bw-5.mp4" type="video/mp4">
+            </video>
+          </button>
+          <a href="resources/P/bw-6.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/bw-6.jpg"></a>
+          <button class="gallery-item video-item" type="button" data-caption="Prim and Proper">
+            <video muted preload="metadata">
+              <source src="resources/P/bw-7.mp4" type="video/mp4">
+            </video>
+          </button>
+          <button class="gallery-item video-item" type="button" data-caption="Prim and Proper">
+            <video muted preload="metadata">
+              <source src="resources/P/bw-8.mp4" type="video/mp4">
+            </video>
+          </button>
+          <a href="resources/P/bw-9.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/bw-9.jpg"></a>
+          <button class="gallery-item video-item" type="button" data-caption="Prim and Proper">
+            <video muted preload="metadata">
+              <source src="resources/P/bw-10.mp4" type="video/mp4">
+            </video>
+          </button>
+          <a href="resources/P/bw-11.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/bw-11.jpg"></a>
+          <button class="gallery-item video-item" type="button" data-caption="Prim and Proper">
+            <video muted preload="metadata">
+              <source src="resources/P/bw-12.mp4" type="video/mp4">
+            </video>
+          </button>
+          <button class="gallery-item video-item" type="button" data-caption="Prim and Proper">
+            <video muted preload="metadata">
+              <source src="resources/P/bw-13.mp4" type="video/mp4">
+            </video>
+          </button>
+          <a href="resources/P/fave-2.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/fave-2.jpg"></a>
+          <button class="gallery-item video-item" type="button" data-caption="Prim and Proper">
+            <video muted preload="metadata">
+              <source src="resources/P/bw-14.mp4" type="video/mp4">
+            </video>
+          </button>
+          <button class="gallery-item video-item" type="button" data-caption="Prim and Proper">
+            <video muted preload="metadata">
+              <source src="resources/P/bw-15.mp4" type="video/mp4">
+            </video>
+          </button>
+          
+        </div>
+      </div>        
+      <div class="gallery-container hide-div" id="mirror-container">
+        <button class="back" id="back8">Back</button>
+        <div class="gallery-grid">
+          <a href="resources/P/mirror-1.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/mirror-1.jpg"></a>
+          <button class="gallery-item video-item" type="button" data-caption="">
+            <video muted preload="metadata">
+              <source src="resources/P/mirror-2.mp4" type="video/mp4">
+            </video>
+          </button>
+          <a href="resources/P/mirror-3.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/mirror-3.jpg"></a>
+          <button class="gallery-item video-item" type="button" data-caption="Prim and Proper">
+            <video muted preload="metadata">
+              <source src="resources/P/mirror-4.mp4" type="video/mp4">
+            </video>
+          </button>
+          <a href="resources/P/mirror-5.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/mirror-5.jpg"></a>
+          <button class="gallery-item video-item" type="button" data-caption="Prim and Proper">
+            <video muted preload="metadata">
+              <source src="resources/P/mirror-6.mp4" type="video/mp4">
+            </video>
+          </button>
+          <button class="gallery-item video-item" type="button" data-caption="Prim and Proper">
+            <video muted preload="metadata">
+              <source src="resources/P/mirror-7.mp4" type="video/mp4">
+            </video>
+          </button>
+          <a href="resources/P/fave-2.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/fave-2.jpg"></a>
+          <button class="gallery-item video-item" type="button" data-caption="Prim and Proper">
+            <video muted preload="metadata">
+              <source src="resources/P/mirror-9.mp4" type="video/mp4">
+            </video>
+          </button>
+          <a href="resources/P/mirror-10.jpg" class="gallery-item" data-lightbox="nails" data-title=""><img src="resources/P/mirror-10.jpg"></a>
+          <button class="gallery-item video-item" type="button" data-caption="Prim and Proper">
+            <video muted preload="metadata">
+              <source src="resources/P/mirror-11.mp4" type="video/mp4">
+            </video>
+          </button>
+          <button class="gallery-item video-item" type="button" data-caption="Prim and Proper">
+            <video muted preload="metadata">
+              <source src="resources/P/mirror-12.mp4" type="video/mp4">
+            </video>
+          </button>
+        </div>
+      </div>   
+    </div>
+
+    <div class="page-song hide-div">
+      <button class="back back2" id="song-back">Back</button>
+      <img class="bouncing" src="resources/images/song-player.gif" alt="">
+      <img src="resources/images/music-notes.gif" alt="" class="shooting-star">
+      <div class="song-container">
+        <h2 class="num-title">03</h2>
+        <div class="title">
+          <span class="emphasis left"></span>
+          <div class="title-content">
+              <h1>THE SONG</h1>
+              <div class="title-decoration">
+                  <span></span>
+                  <span class="heart"><img src="resources/images/scary.png" alt=""></span>
+                  <span></span>
+              </div>
+          </div>
+          <span class="emphasis right"></span>
+        </div>
+        <p class="subtitle1">Ten little pieces of a soundtrack.</p>
+        <p class="subtitle2 " id="song-subtitle">Ten songs for this special lady's day.</p>
+
+        <div class="song-box">
+          <div id="spotifyEmbed"></div>
+          <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="page-kam hide-div">
+      <button class="back back2" id="kam-back">Back</button>
+      
+      <div class="kam-container">
+        <h2 class="num-title">04</h2>
+        <div class="title">
+          <span class="emphasis left"></span>
+          <div class="title-content">
+              <h1>THE PERSON</h1>
+              <div class="title-decoration">
+                  <span></span>
+                  <span class="heart"><img src="resources/images/scary.png" alt=""></span>
+                  <span></span>
+              </div>
+          </div>
+          <span class="emphasis right"></span>
+        </div>
+        <p class="subtitle1">Let's talk about you.</p>
+        <p class="subtitle2">The beautiful and weird ways that I see you.</p>
+
+        <div class="kam-basic">
+          <div class="sketchbook-spread">
+  
+            <!-- LEFT SIDE: Polaroid & Botanical Accent -->
+            <div class="spread-left">
+              <div class="polaroid-card">
+                <div class="washi-tape"></div>
+                <div class="polaroid-photo-frame">
+                  <!-- Replace src with Kamie's actual picture -->
+                  <img src="resources/P/kam-1.jpg" alt="Kamie" class="polaroid-img" />
+                </div>
+                <div class="polaroid-caption">That's you <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span></div>
+              </div>
+          
+            </div>
+          
+            <!-- RIGHT SIDE: Prompts & Note Box -->
+            <div class="spread-right">
+              <div class="prompt-item">
+                <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+                <h2 class="prompt-text">
+                  The first thing I noticed about you:
+                </h2>
+                <div class="sketch-line"><p>Your Lips😅</p></div>
+              </div>
+          
+              <div class="prompt-item">
+                <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+                <h2 class="prompt-text">
+                  A quality I admire the most:
+                </h2>
+                <div class="sketch-line"><p>Your Bluntness</p></div>
+              </div>
+          
+              <div class="prompt-item">
+                <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+                <h2 class="prompt-text">
+                  Something that always makes me smile:
+                </h2>
+                <div class="sketch-line"><p>Whenever you spam 😅🤤🌝</p></div>
+              </div>
+          
+              <div class="prompt-item">
+                <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+                <h2 class="prompt-text">
+                  A memory I'll never forget:                  
+                </h2>
+                <div class="sketch-line"><p>"I love you too"... Yes, you said it and evidence dey 😅</p></div>
+              </div>
+          
+              <div class="prompt-item">
+                <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+                <h2 class="prompt-text">
+                  What makes you so special to me:                  
+                </h2>
+                <div class="sketch-line"><p>You're a motivation, unfortunately an intimidating one</p></div>
+              </div>
+          
+              <div class="prompt-item">
+                <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+                <h2 class="prompt-text">
+                  Three things I love about you are:                  
+                </h2>
+                <div class="sketch-line"><p>Your nails, confidence and energy !</p></div>
+              </div>
+          
+              <div class="prompt-item">
+                <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+                <h2 class="prompt-text">
+                  My favorite things to do with you:            
+                </h2>
+                <div class="sketch-line"><p>Reading, Singing and Story Time😋</p></div>
+              </div>
+              <!-- <div class="note-section">
+                <div class="prompt-item note-header">
+                  <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+                  <span class="prompt-text">A little note for you:</span>
+                </div>
+                <div class="sketch-box">
+                  <p>So the</p>
+                  <span class="box-heart"><img src="resources/images/scary.png" alt=""></span>
+                </div>
+              </div> -->
+
+            </div>
+          
+          </div>
+        </div>
+        <div class="kam-box">
+          <span class="kam-title"><img src="resources/images/star-outline.png" alt=""><p class="subtitle2">Which one do you want to see first?</p><img src="resources/images/star-outline.png" alt=""></span>
+          <div class="kam-area">
+            <button class="kam-btn" id="lynx">
+              <img src="resources/images/lynx.png" class="kam-img" alt="">
+              <div class="kambtn-decoration">
+                <span></span>
+                <span class="heart"><img src="resources/images/scary.png" alt=""></span>
+                <span></span>
+              </div>
+              <p>BABY CAT</p>
+            </button>
+            <button class="kam-btn" id="bear">
+              <img src="resources/images/bear.png" class="kam-img" alt="">
+              <div class="kambtn-decoration">
+                <span></span>
+                <span class="heart"><img src="resources/images/scary.png" alt=""></span>
+                <span></span>
+              </div>
+              <p>MAMA BEAR</p>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="kam-lynx hide-div">
+        <button class="k-back" id="lynx-back">Back</button>
+        <span class="k-title"><img src="resources/images/star-outline.png" alt=""><p class="subtitle2">QUESTIONS TO AGEGENNY & IYA-AGBO</p><img src="resources/images/star-outline.png" alt=""></span>
+        <div class="sketchbook-spread">
+
+          <!-- LEFT SIDE: Polaroid & Botanical Accent -->
+          <div class="spread-left">
+            <div class="polaroid-card">
+              <div class="washi-tape"></div>
+              <div class="polaroid-photo-frame">
+                <!-- Replace src with Kamie's actual picture -->
+                <img src="resources/P/kam-2.jpg" alt="Kamie" class="polaroid-img" />
+              </div>
+              <div class="polaroid-caption">That's you <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span></div>
+            </div>
+        
+          </div>
+        
+          <!-- RIGHT SIDE: Prompts & Note Box -->
+          <div class="spread-right">
+            <div class="prompt-item">
+              <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+              <h2 class="prompt-text">
+                How does someone go from perfectly fine to visibly irritated in approximately 0.2 seconds?
+              </h2>
+              <div class="sketch-line"></div>
+            </div>
+        
+            <div class="prompt-item">
+              <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+              <h2 class="prompt-text">
+                What exactly does Kamie gain from messing with Heiwa when peace is literally an option?
+              </h2>
+              <div class="sketch-line"></div>
+            </div>
+        
+            <div class="prompt-item">
+              <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+              <h2 class="prompt-text">
+                What happens when a perfectly ordinary day suddenly turns into a mysterious balaclava appearance?. With her weird ahh laugh
+              </h2>
+              <div class="sketch-line"></div>
+            </div>
+        
+            <div class="prompt-item">
+              <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+              <h2 class="prompt-text">
+                Why does she need a normal face when she can terrorise the camera with that "mmmort" filter?                 
+              </h2>
+              <div class="sketch-line"></div>
+            </div>
+        
+            <div class="prompt-item">
+              <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+              <h2 class="prompt-text">
+                When she starts trouble, enters the sass state and then acts like she has absolutely no idea what you're talking about, should we believe her?            
+              </h2>
+              <div class="sketch-line"></div>
+            </div>
+        
+            <div class="prompt-item">
+              <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+              <h2 class="prompt-text">
+                Is she genuinely annoyed, secretly amused, or somehow experiencing both at the same time?              
+              </h2>
+              <div class="sketch-line"></div>
+            </div>
+        
+            <div class="prompt-item">
+              <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+              <h2 class="prompt-text">
+                When Kamie stops the sass, who is the girl underneath all that mischief?       
+              </h2>
+              <div class="sketch-line"></div>
+            </div>
+            <div class="note-section">
+              <div class="prompt-item note-header">
+                <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+                <span class="prompt-text">A little note:</span>
+              </div>
+              <div class="sketch-box">
+                <p>The silly, sassy playful part of you... The part we started off our friendship with and its here the vibes come from, because the hoodlum must always show herself. Even though sometimes it tires me out (Coz this oldman doesn't have energy like that), it's a pleasure to always be accustomed to your bright side.</p>
+                <span class="box-heart"><img src="resources/images/scary.png" alt=""></span>
+              </div>
+            </div>
+
+          </div>
+        
+        </div>
+      </div>
+      <div class="kam-bear hide-div">
+        <button class="k-back" id="bear-back">Back</button>
+        <span class="k-title"><img src="resources/images/star-outline.png" alt=""><p class="subtitle2">QUESTIONS FOR PUMPKIN</p><img src="resources/images/star-outline.png" alt=""></span>
+        <div class="sketchbook-spread">
+          <div class="spread-left">
+            <div class="polaroid-card">
+              <div class="washi-tape"></div>
+              <div class="polaroid-photo-frame">
+                <img src="resources/P/kam-3.jpg" alt="Kamie" class="polaroid-img" />
+              </div>
+              <div class="polaroid-caption">That's you <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span></div>
+            </div>
+        
+          </div>
+        
+          <div class="spread-right">
+            <div class="prompt-item">
+              <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+              <h2 class="prompt-text">
+                Why does Kamie sometimes keep her thoughts and feelings to herself, even when there's someone willing to listen?... Or am I just reading her wrong?
+              </h2>
+              <div class="sketch-line"></div>
+            </div>
+        
+            <div class="prompt-item">
+              <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+              <h2 class="prompt-text">
+                When Kamie goes quiet, what's happening in that head of hers?
+              </h2>
+              <div class="sketch-line"></div>
+            </div>
+        
+            <div class="prompt-item">
+              <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+              <h2 class="prompt-text">
+                Who gets to see her softer side, and what makes someone worthy of that trust?
+              </h2>
+              <div class="sketch-line"></div>
+            </div>
+        
+            <div class="prompt-item">
+              <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+              <h2 class="prompt-text">
+                When what she feels clashes with what she believes she should do, which side usually wins?                
+              </h2>
+              <div class="sketch-line"></div>
+            </div>
+        
+            <div class="prompt-item">
+              <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+              <h2 class="prompt-text">
+                Are there feelings she finds easier to carry silently than to explain to someone else?               
+              </h2>
+              <div class="sketch-line"></div>
+            </div>
+        
+            <div class="prompt-item">
+              <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+              <h2 class="prompt-text">
+                When Kamie cares about someone, how does that care show up—and would the person always recognise it?                  
+              </h2>
+              <div class="sketch-line"></div>
+            </div>
+        
+            <div class="prompt-item">
+              <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+              <h2 class="prompt-text">
+                If she didn't have to be strong, guarded, or in control for a moment, who would she allow herself to be?           
+              </h2>
+              <div class="sketch-line"></div>
+            </div>
+            <div class="note-section">
+              <div class="prompt-item note-header">
+                <span class="prompt-heart"><img src="resources/images/scary.png" alt=""></span>
+                <span class="prompt-text">A little note:</span>
+              </div>
+              <div class="sketch-box">
+                <p>The part I find hard to understand but its the one I love the most. I don't even know if its really there, because its hard to tell if its just an irritated you or the one that wants to lock in and lock up. It's the sexier version of you tho, coz when she spams... Oboy, fucking crazy</p>
+                <span class="box-heart"><img src="resources/images/scary.png" alt=""></span>
+              </div>
+            </div>
+
+          </div>
+        
+        </div>
+      </div>
+
+    </div>
+
+    <div class="page-letter hide-div">
+      <button class="back back2">Back</button>
+      <img class="bouncing-cake2" src="resources/images/open-letter.gif" alt="">
+      <img src="resources/images/closed-letter.gif" alt="" class="letter">
+      <div class="letter-container">
+        <h2 class="num-title">05</h2>
+        <div class="title">
+          <span class="emphasis left"></span>
+          <div class="title-content">
+              <h1>THE LETTER</h1>
+              <div class="title-decoration">
+                  <span></span>
+                  <span class="heart"><img src="resources/images/scary.png" alt=""></span>
+                  <span></span>
+              </div>
+          </div>
+          <span class="emphasis right"></span>
+        </div>
+        <p class="subtitle1">Words I've kept for you.</p>
+        <p class="subtitle2">Now this is me officially wishing you a Happy Birthday!</p>
+
+        <div class="letter-box">
+          <div class="letter-paper">
+            <div class="letter-content">
+                <p>Dear Kamie,</p>
+        
+                <div class="letter-body">
+                  Happy Birthday! ❤️ <br>
+
+                  As the hopeless romantic that I am, forgive me for the sheer length of this letter. 😭😂 
+                  I thought it wise and nice to do this because, as the saying goes, silver and gold have I none. 😅😔 
+                  I actually planned on ordering something for you, but unfortunately, that plan, amongst many others, 
+                  was fucked up this year. Nevertheless, I do hope this vindicates me. 😅 Besides, I figured that if I 
+                  couldn't give you something I ordered, I could at least give you something I made, something with a 
+                  little more of myself in it. And well, here we are. I made you an entire website, so I suppose I've 
+                  committed to the bit now. 😂 <br> <br>
+
+                  I wanted you to have something you could come back to, something that would remind you of this particular 
+                  day and, hopefully, make you smile whenever you revisit it. Something that captures little pieces of you: 
+                  the memories, the music, the ridiculous moments, and the things I might not always find the right words to say. <br> <br>
+
+                  I still have our chats from the very beginning, even from AF before we moved to the DMs. Once in a 
+                  while, I go back and ask myself, <em>How did I get here? How did I get infected with this hanc—sorry, 
+                    hankersore?</em> 😭😂 And every time I do, I realise just how much I've calmed down concerning you. It's 
+                  funny looking back at how things started and comparing it with where we are now. It's been a joy getting 
+                  to know you, even though you have my stomach in knots sometimes. And it's going to be even more fun watching 
+                  you grow. (You'll always still be a zygote to me. 😏😂) Because you are, and are going to be, amazing. <br> <br>
+
+                  One of the things I appreciate about you is that there isn't just one version of you. There's the playful, 
+                  mischievous girl who can be an absolute menace for no apparent reason, and then there's the other side, the 
+                  one that makes me curious about what goes on in your head, how you see things, and all the little details that 
+                  make you who you are. I wanted this gift to celebrate those different sides of you, because they're all part of 
+                  the person I'm wishing a happy birthday to today. <br> <br>
+
+                  Thank you for giving me an ear, for listening to my rants and vents, for being patient with me, for the laughs, the 
+                  mischief, the spams, the conversations, the confusing messages, the one-word replies, the calls (even though 
+                  we rarely speak on calls 😭), the reading sessions, the singing chronicles, listening to the songs I send you 
+                  (at this point, they should officially be <strong>OUR songs</strong> 😌), and, of course, story time. <br> <br>
+
+                  I appreciate all of it, genuinely. And I think there's something beautiful about all these little things we share. Every 
+                  conversation, every song, every reading session, every random story, and every ridiculous exchange gives us another piece 
+                  of each other's lives. They give us more things to remember, more things to laugh about, and more opportunities to understand 
+                  each other beyond the surface. In their own little ways, these moments are helping us build something meaningful: a bond that 
+                  grows through time, familiarity, trust, and the willingness to keep showing up for each other, even though we're far apart. 
+                  I hope we never stop making room for those moments. <br> <br>
+
+                  So, <strong>Lawalesme Chisom Penelope</strong> (I've forgotten the Esan one. Omoze-something, right? 😭😂), here's my prayer for you. <br>
+
+                  May your days be long, and may you walk in good and perfect health throughout this new year of your life and beyond. 
+                  May you receive speedy answers to your heart's desires, and may God continue to keep and guide you in all that you do. 
+                  May He replenish you with His <em>excellent spirit</em>, show Himself strong in your life, and give you the grace and strength 
+                  to work out life as you walk with Him. May He also grant you the full package of Revelation 5:12 in Christ Jesus. <br> <br>
+
+                  May He make your alto sweeter than ever, your beauty ever resplendent, and your aura comforting—or otherwise, as you deem fit. 😭😂 <br>
+                  May He keep you, your family, and your loved ones in peace and in health, and take away sadness from all that concerns you. May He bless 
+                  the work of your hands, order your steps, strengthen you when life gets difficult, and give you reasons to smile even in seasons 
+                  when smiling doesn't come easily. <br> <br>
+
+                  And for us, may He help us become more open with each other, communicate better, understand each other more deeply, and be 
+                  better friends this year and beyond. May we learn to navigate each other's differences with patience, honesty, and grace, 
+                  and may whatever we continue to build be something we both cherish.... IJN. Amen. ❤️ <br> <br>
+
+                  I hope this new year brings you reasons to laugh until your stomach hurts, opportunities that excite you, people who 
+                  genuinely care about you, and moments that remind you how much good there is still waiting for you. I hope you find 
+                  the courage to pursue the things you want, the patience to get through the things you don't, and the wisdom to recognise 
+                  when you deserve a little rest. <br> <br>
+
+                  And on the days when things don't go according to plan, I hope you're gentle with yourself. You don't have to have everything 
+                  figured out. You don't have to be at your best every single day. You're allowed to grow at your own pace, change your mind, 
+                  make mistakes, and discover new things about yourself along the way. I hope you never forget that becoming the person you 
+                  want to be is a journey, not a race. <br> <br>
+
+                  I really care about you, Kamie, and I'm genuinely grateful that Wednesday dragged your ass to 
+                  Anime Family. 😭😂 <br> Imagine if you hadn't shown up. Look at the amount of trouble I would've 
+                  been spared—and the amount of joy I would've missed. I'm glad our paths crossed, and I'm grateful 
+                  that I get to know you the way I do. <br> <br>
+
+                  I hope we'll both put in the work to become better friends and, perhaps, even more. I want us to 
+                  keep growing closer, to be more intentional about understanding each other, and to create even more 
+                  memories worth looking back on. I don't expect everything to be perfect, but I do hope we keep choosing 
+                  honesty, patience, and effort. Because whatever happens, nothing changes the fact that 
+                  <strong>I want you</strong>. (Mineeeeeee!😭😅😍) <br> <br>
+
+                  Thank you for being you, for the laughs, the conversations, the mischief, and the little moments that 
+                  make knowing you what it is. I hope this gift gives you even a fraction of the happiness I felt putting it together. <br> <br>
+
+                  So, Kamie, here's to another year of becoming, learning, laughing, singing, reading, and living. May you 
+                  have more beautiful memories to make, more dreams to chase, more songs to add to *our* playlist, and more 
+                  reasons to be proud of the person you're becoming. <br> <br>
+
+                  <strong>I love you, Pumpkin.</strong> ❤️ <br> <br>
+
+                  Happy Birthday once again, Kamie. I hope today reminds you that your existence is worth celebrating, not just because it's your birthday, but simply because you're here. <br> <br>
+                  <strong>With love, prayers, and the occasional complaint about your troublesome behaviour,</strong>  
+                </div>
+        
+                <div class="bottom-letter">
+                  <p class="letter-signature">
+                    Always,<br>
+                    Heiwa ♡
+                  </p>
+                  <button type="button" id="letter-download">
+                    <img src="resources/images/lett-download.png" alt="">
+                  </button>
+                </div>
+            </div>
+        
+            <div class="paper-tape"></div>
+            </div>
+          
+            <div class="rate-con">
+              <button id="rate">Rate your Experience</button>
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="rateOverlay" class="hide-div" >
+      <section class="rating-card" aria-labelledby="ratingTitle">
+        <button class="close-rating" type="button" aria-label="Close rating">&times;</button>
     
+        <h2 id="ratingTitle">How was your experience? 💚</h2>
+        <p>I hope this little birthday corner made you smile.</p>
+    
+        <form id="ratingForm">
+          <fieldset class="star-rating">
+            <legend>Rate this website from 1 to 5 stars</legend>
+    
+            <input id="star5" name="rating" type="radio" value="5">
+            <label for="star5" title="5 stars">★</label>
+    
+            <input id="star4" name="rating" type="radio" value="4">
+            <label for="star4" title="4 stars">★</label>
+    
+            <input id="star3" name="rating" type="radio" value="3">
+            <label for="star3" title="3 stars">★</label>
+    
+            <input id="star2" name="rating" type="radio" value="2">
+            <label for="star2" title="2 stars">★</label>
+    
+            <input id="star1" name="rating" type="radio" value="1">
+            <label for="star1" title="1 star">★</label>
+          </fieldset>
+    
+          <button class="submit-rating" type="submit">Send rating ✨</button>
+        </form>
+    
+        <p class="rating-status" id="ratingStatus" aria-live="polite"></p>
+      </section>
+    </div>
     <div id="goodGirlOverlay" class="hide-div">
         <h1>GOOD GIRL</h1>
+    </div>
+    <div class="video-modal" id="videoModal">
+      <button class="close-video" type="button">&times;</button>
+      <video id="modalVideo" controls></video>
+      <p class="video-caption" id="videoCaption"></p>
     </div>
     <audio id="birthdayMusic" loop preload="auto">
         <source src="resources/Cat-Burns-Theres-Just-Something-About-Her-(CeeNaija.com).mp3" type="audio/mpeg">
     </audio>
 
+    <script src="lightbox-plus-jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@5/dist/email.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
