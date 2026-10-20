@@ -80,7 +80,7 @@ const closeRating = document.querySelector('.close-rating');
     return;
   }
 
-  const MAX_WAIT = 12000;
+  const MAX_WAIT = 30000;
   const FADE_TIME = 650;
 
   const messages = [
@@ -211,7 +211,7 @@ const closeRating = document.querySelector('.close-rating');
 
     const essentialImages = [
       "resources/images/pumpkin.png"
-      // Add the initial welcome-screen background here if needed.
+
     ];
 
     const imageTasks = essentialImages.map(async (url) => {
@@ -229,17 +229,28 @@ const closeRating = document.querySelector('.close-rating');
       }
     });
 
-    const fontTask = (async () => {
-      if (!document.fonts || !document.fonts.ready) return true;
+      const fontTask = (async () => {
+        try {
+          await document.fonts.ready;
+      
 
-      try {
-        await document.fonts.ready;
-        return true;
-      } catch (error) {
-        console.warn("Font loading failed:", error);
-        return false;
-      }
-    })();
+          const essentialFonts = [
+            { family: "Short Stack", weight: "400", style: "normal" },
+            { family: "Architects Daughter", weight: "400", style: "normal" },
+            { family: "Knewave", weight: "400", style: "normal" },
+            { family: "Playwrite", weight: "400", style: "normal" },
+          ];
+      
+          await Promise.all(
+            essentialFonts.map((font) => document.fonts.load(font))
+          );
+      
+          return essentialFonts.every((font) => document.fonts.check(font));
+        } catch (error) {
+          console.warn("Font loading failed:", error);
+          return false;
+        }
+      })();
 
     const domTask = new Promise((resolve) => {
       if (document.readyState !== "loading") {
