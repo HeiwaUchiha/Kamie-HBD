@@ -141,7 +141,24 @@ emailjs.init({
     publicKey: "JjNoDkv7e9cj5SfGv"
 });
 
+async function loadCustomFont(doc, fileName, fontName, style = "normal") {
+  const response = await fetch(`resources/fonts/${fileName}`);
 
+  if (!response.ok) {
+    throw new Error(`Failed to load ${fileName}`);
+  }
+
+  const buffer = await response.arrayBuffer();
+  const bytes = new Uint8Array(buffer);
+
+  let binary = "";
+  for (const byte of bytes) {
+    binary += String.fromCharCode(byte);
+  }
+
+  doc.addFileToVFS(fileName, btoa(binary));
+  doc.addFont(fileName, fontName, style);
+}
 
 sendWishBtn.addEventListener("click", async () => {
     const wish = wishInput.value.trim();
@@ -162,7 +179,13 @@ sendWishBtn.addEventListener("click", async () => {
                 unit: "mm",
                 format: "a4"
             });
+          
 
+            await Promise.all([
+              loadCustomFont(pdf, "Advantage.ttf", "Advantage", "bold"),
+              loadCustomFont(pdf, "ArchitectsDaughter-Regular.ttf", "Architects Daughter", "normal"),
+              loadCustomFont(pdf, "Shortstack-Regular.ttf", "Shortstack", "normal"),
+            ]);
             const pageWidth = 210;
             const pageHeight = 297;
 
@@ -183,7 +206,7 @@ sendWishBtn.addEventListener("click", async () => {
 
             // 3. Heading
             pdf.setTextColor(...green);
-            pdf.setFont("times", "bold");
+            pdf.setFont("Advantage", "bold");
             pdf.setFontSize(24);
 
             pdf.text("A Birthday Wish", 105,  30, {
@@ -193,22 +216,17 @@ sendWishBtn.addEventListener("click", async () => {
             // 4. Decorative lines and heart
             
             /* Pumpkin decoration */
-            pdf.setDrawColor(31, 67, 40);
-            pdf.setFillColor(120, 155, 131);
-            pdf.setLineWidth(0.6);
+            const pumpkinImage = new Image();
+            pumpkinImage.src = "resources/images/pumpkin.png";
 
-            // Pumpkin body — three overlapping ellipses
-            pdf.ellipse(101, 39, 3.5, 4.5, "FD");
-            pdf.ellipse(105, 39, 3.5, 5, "FD");
-            pdf.ellipse(109, 39, 3.5, 4.5, "FD");
+            await pumpkinImage.decode();
 
-            // Small stem
-            pdf.setFillColor(31, 67, 40);
-            pdf.roundedRect(104, 32.5, 2, 3, 0.5, 0.5, "F");
-
-            // Tiny leaf
-            pdf.setFillColor(120, 155, 131);
-            pdf.ellipse(108, 33.5, 2, 1, "FD");
+            pdf.addImage(
+              pumpkinImage,
+              "PNG",
+              98, 32,  /* x, y */
+              15, 15   /* width, height */
+            );
 
 
             // 5. Inset wish panel
@@ -231,7 +249,7 @@ sendWishBtn.addEventListener("click", async () => {
 
             // 6. Wish text with generous internal margins
             pdf.setTextColor(...ink);
-            pdf.setFont("times", "normal");
+            pdf.setFont("Shortstack", "normal");
             pdf.setFontSize(13);
 
             const wishLines = pdf.splitTextToSize(wish, 132);
@@ -242,7 +260,7 @@ sendWishBtn.addEventListener("click", async () => {
 
             // 7. Footer
             pdf.setTextColor(...green);
-            pdf.setFont("times", "italic");
+            pdf.setFont("Architects Daughter", "normal");
             pdf.setFontSize(10);
 
             pdf.text(
