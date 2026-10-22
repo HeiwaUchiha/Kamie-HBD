@@ -434,7 +434,6 @@ sendWishBtn.addEventListener("click", async () => {
             await Promise.all([
               loadCustomFont(pdf, "Advantage.ttf", "Advantage", "bold"),
               loadCustomFont(pdf, "ArchitectsDaughter-Regular.ttf", "Architects Daughter", "normal"),
-              loadCustomFont(pdf, "Shortstack-Regular.ttf", "Shortstack", "normal"),
             ]);
             const pageWidth = 210;
             const pageHeight = 297;
@@ -499,7 +498,7 @@ sendWishBtn.addEventListener("click", async () => {
 
             // 6. Wish text with generous internal margins
             pdf.setTextColor(...ink);
-            pdf.setFont("Shortstack", "normal");
+            pdf.setFont("Architects Daughter", "normal");
             pdf.setFontSize(13);
 
             const wishLines = pdf.splitTextToSize(wish, 132);
